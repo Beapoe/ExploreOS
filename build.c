@@ -44,23 +44,23 @@ int main()
     };
     close(temp);
 
-    //lseek(kernel, 0x100000 - 0x10000, SEEK_SET);
+    lseek(kernel, 0x100000 - 0x10000, SEEK_SET);
 
-    // // head64
-    // temp = open("head64.bin", O_RDONLY);
-    // while (1)
-    // {
-    //     c = read(temp, buf, 512);
-    //     if (c > 0)
-    //     {
-    //         write(kernel, buf, c);
-    //     }
-    //     else
-    //     {
-    //         break;
-    //     };
-    //     close(temp);
-    // };
+    // head64
+    temp = open("head64.bin", O_RDONLY);
+    while (1)
+    {
+        c = read(temp, buf, 512);
+        if (c > 0)
+        {
+            write(kernel, buf, c);
+        }
+        else
+        {
+            break;
+        };
+        close(temp);
+    };
 
     // close(kernel);
     return 0;
